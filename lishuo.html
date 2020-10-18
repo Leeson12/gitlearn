@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+		<title>测试</title>
+		<style>
+			body{
+				text-align:center;
+			}
+			#tab1{
+				margin:auto;
+			}
+		</style>
+		<script>
+			var arr=[['石家庄','张家口','秦皇岛'],['信阳','郑州','开封'],['济南','青岛','烟台']];
+			function clickOption(){
+				var selectS=document.getElementById("S");
+				var val=selectS.value;
+				val=val-1;
+				var selectC=document.getElementById("C");
+				selectC.options.length=1;
+				for(var i=0;i<arr[val].length;i++){
+					var opt=document.createElement("option");
+					var text=document.createTextNode(arr[val][i]);
+					opt.appendChild(text);
+					selectC.appendChild(opt);
+				}
+			}
+			function checkmsg1(obj){
+				var type=false;
+				msg1=document.getElementById("msg1");
+				if(obj.value==0||obj.value==""){
+					msg1.innerHTML="不能为空";
+				}else{
+					var phone=obj.value; 
+					if(!(/1[3456789]\d{9}$/.test(phone))){
+						msg1.innerHTML="手机号输入不合法，请重新输入！";
+					}else{
+						msg1.innerHTML="输入正确";
+						type=true;
+					}
+				}
+				if(type==true){
+					msg1.style.color="green";
+					return true;
+				}else{
+					msg1.style.color="red";
+					return false;
+				}
+			}
+			function checkmsg2(obj){
+				var type=false;
+				msg2=document.getElementById("msg2");
+				if(obj.value==0||obj.value==""){
+					msg2.innerHTML="不能为空";
+				}else{
+					var email=obj.value;
+					var str=email.lastIndexOf(".");
+					var str2=email.substring(str);
+					var str3=email.indexOf("@");
+					var str4=email.substring(0,str3);
+					var str5=email.substring(str3,str3+1);
+					var str6=email.indexOf(".");
+					var str7=email.substring(str3+1,str6);
+					if(str5=="@"&&(str2==".com"||str2==".cn")&&str4!=""&&str7!=""){
+						msg2.innerHTML="输入正确";
+						type=true;
+					}else{
+						msg2.innerHTML="邮箱格式错误，请重新输入！";
+					}
+					
+				}
+				if(type==true){
+					msg2.style.color="green";
+					return true;
+				}else{
+					msg2.style.color="red";
+					return false;
+				}
+			}
+			function checkmsg3(obj){
+				var type=false;
+				msg3=document.getElementById("msg3");
+				if(obj.value==0||obj.value==""){
+					msg3.innerHTML="不能为空";
+					
+				}else{
+					msg3.innerHTML="输入正确";
+					type=true;
+					
+				}
+				if(type==true){
+					msg3.style.color="green";
+					return true;
+				}else{
+					msg3.style.color="red";
+					return false;
+				}
+			}
+			function checkmsg4(obj){
+				var type=false;
+				msg4=document.getElementById("msg4");
+				if(obj.value==0||obj.value==""){
+					msg4.innerHTML="不能为空";
+					
+				}else{
+					msg4.innerHTML="输入正确";
+					type=true;
+					
+				}
+				if(type==true){
+					msg4.style.color="green";
+					return true;
+				}else{
+					msg4.style.color="red";
+					return false;
+				}
+			}
+			function checkmsg5(obj){
+				var type=false;
+				msg5=document.getElementById("msg5");
+				if(obj.value==0||obj.value==""){
+					msg5.innerHTML="不能为空";
+					
+				}else{
+					msg5.innerHTML="输入正确";
+					type=true;
+					
+				}
+				if(type==true){
+					msg5.style.color="green";
+					return true;
+				}else{
+					msg5.style.color="red";
+					return false;
+				}
+			}
+			function checkmsg6(obj){
+				var type=false;
+				msg6=document.getElementById("msg6");
+				if(obj.value==0||obj.value==""){
+					msg6.innerHTML="不能为空";
+					
+				}else{
+					msg6.innerHTML="输入正确";
+					type=true;
+					
+				}
+				if(type==true){
+					msg6.style.color="green";
+					return true;
+				}else{
+					msg6.style.color="red";
+					return false;
+				}
+			}
+			function checkmsg7(obj){
+				var type=false;
+				msg7=document.getElementById("msg7");
+				if(obj.value==0||obj.value==""){
+					msg7.innerHTML="不能为空";
+					
+				}else{
+					msg7.innerHTML="输入正确";
+					type=true;
+					
+				}
+				if(type==true){
+					msg7.style.color="green";
+					return true;
+				}else{
+					msg7.style.color="red";
+					return false;
+				}
+			}
+			function check(){
+				if(confirm("提交表单？")){
+					alert("注册成功");
+					return true;
+				}else{
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<h1>用户注册</h1>
+			<form onsubmit="return check()">
+				<table id="tab1" border="1" cellspacing="0">
+					<tr>
+						<td>手机号码：</td>
+						<td><input id="telephone" onblur="checkmsg1(this)"></input></td>
+					</tr>
+					<tr>
+						<td colspan="2"><label id="msg1"></label></td>
+					</tr>
+					<tr>
+						<td>邮件地址：</td>
+						<td><input id="mail" onblur="checkmsg2(this)"></input></td>
+					</tr>
+					<tr>
+						<td colspan="2"><label id="msg2"></label></td>
+					</tr>
+					<tr>
+						<td>密码：</td>
+						<td><input id="pwd" onblur="checkmsg3(this)"></input></td>
+					</tr>
+					<tr>
+						
+						<td colspan="2"><label id="msg3"></label></td>
+					</tr>
+					<tr>
+						<td>确认密码：</td>
+						<td><input id="surpwd" onblur="checkmsg4(this)"></input></td>
+					</tr>
+					<tr>
+						
+						<td colspan="2"><label id="msg4"></label></td>
+					</tr>
+					<tr>
+						<td>真实姓名：</td>
+						<td><input id="name" onblur="checkmsg5(this)"></input></td>
+					</tr>
+					<tr>
+						
+						<td colspan="2"><label id="msg5"></label></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td colspan="2"><input id="sex" onblur="checkmsg6(this)"></input></td>
+					</tr>
+					<tr>
+						
+						<td colspan="2"><label id="msg6"></label></td>
+					</tr>
+					<tr>
+						<td>所在地：</td>
+						<td>
+							<select id="S" onchange="clickOption()">
+								<option value="0">
+									--请选择--
+								</option>
+								<option value="1">河北</option>
+								<option value="2">河南</option>
+								<option value="3">山东</option>
+							</select>
+							<select id="C">
+								<option>
+									--请选择--
+								</option>
+							</select>
+						</td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td>个人介绍：</td>
+						<td><input id="introduce" onblur="checkmsg7(this)"></input></td>
+					</tr>
+					<tr>
+						
+						<td colspan="2"><label id="msg7"></label></td>
+					</tr>
+					<tr>
+						<td>感兴趣的新闻：</td>
+						<td>
+							<input type="checkbox" value="checkbox1">体育新闻</input>
+							<input type="checkbox" value="checkbox1">娱乐新闻</input>
+							<input type="checkbox" value="checkbox1">教育新闻</input>
+							<input type="checkbox" value="checkbox1">外交新闻</input>
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="提交"></input>
+					<input type="reset" value="重置"></input>
+			</form>
+		</div>
+	</body>
+</html>
